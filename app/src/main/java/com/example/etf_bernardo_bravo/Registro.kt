@@ -3,6 +3,7 @@ package com.example.etf_bernardo_bravo
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -20,15 +21,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-
+import androidx.compose.ui.unit.sp
 
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview(showBackground = true, name = "Prueba")
+@Preview(showBackground = true, name = "Prueba Registro")
 @Composable
 fun FormularioUsuario() {
     val context = LocalContext.current
@@ -50,6 +53,9 @@ fun FormularioUsuario() {
         regiones.value = dbHelper.obtRegiones()
     }
 
+
+    Spacer(modifier = Modifier.height(15.dp))
+    
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -58,8 +64,15 @@ fun FormularioUsuario() {
     )
     {
         Column(
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Text(
+                text = "Terminar Registro de Usuario",
+                fontSize = 20.sp,
+                color = Color.Black
+            )
+
             OutlinedTextField(
                 value = rut.value,
                 onValueChange = { rut.value = it },

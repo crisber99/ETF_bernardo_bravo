@@ -1,6 +1,7 @@
 package com.example.etf_bernardo_bravo
 
 
+import android.content.Intent
 import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -15,6 +16,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
 //noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.MaterialTheme.colors
+import androidx.compose.material.TextButton
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
@@ -32,6 +35,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
@@ -47,6 +51,7 @@ import com.example.etf_bernardo_bravo.modelo.Usuario
 @Composable
 fun PantallaLogin() {
     val showLoginForm = rememberSaveable { mutableStateOf(true) }
+    val context = LocalContext.current
     Surface(modifier = Modifier
         .fillMaxSize()) {
         Column(
@@ -65,6 +70,8 @@ fun PantallaLogin() {
                     LoginForm = showLoginForm
                 ) { email, pass ->
                     Log.d("Proy", "Logueado con: $email y $pass")
+                    val intent = Intent(context, InicioActivity::class.java)
+                    context.startActivity(intent)
                 }
             } else {
                 Text(text = "Crea una cuenta")
@@ -73,6 +80,9 @@ fun PantallaLogin() {
                     Log.d("Proy", "Cuenta creada con: $email y $pass")
                     val usuario = Usuario(email, pass)
                     Usuario.agregarUsuario(usuario)
+
+                    val intent = Intent(context, InicioActivity::class.java)
+                    context.startActivity(intent)
                 }
             }
         }
@@ -81,6 +91,8 @@ fun PantallaLogin() {
 
 @Composable
 fun UserForm(isCreateAccount: Boolean = false, LoginForm: MutableState<Boolean>, onDone: (String, String) -> Unit = { email, pass ->}) {
+    val context = LocalContext.current
+
     val email = rememberSaveable() { mutableStateOf("") }
     val pass = rememberSaveable() { mutableStateOf("") }
     val passVisible = rememberSaveable() { mutableStateOf(false) }
@@ -109,6 +121,29 @@ fun UserForm(isCreateAccount: Boolean = false, LoginForm: MutableState<Boolean>,
             onDone(email.value.trim(), pass.value.trim())
             keyboardController?.hide()
         }
+
+        SubmitButton2(
+            textId = "¿Olvidó su contraseña?"
+        )
+    }
+}
+
+@Composable
+fun SubmitButton2(textId: String) {
+
+    val context = LocalContext.current
+    TextButton(onClick = {
+        Log.d("Proy", "boton 2")
+        val intent = Intent(context, RecuPassActivity::class.java)
+        context.startActivity(intent)
+    },
+        modifier = Modifier
+            .padding(start = 5.dp)
+    ) {
+        Text(text=textId,
+            modifier = Modifier
+                .padding(start = 5.dp),
+            color = colors.secondaryVariant)
     }
 }
 
@@ -125,7 +160,7 @@ fun TextoBajo(showLoginForm: MutableState<Boolean>) {
         modifier = Modifier
             .clickable { showLoginForm.value = !showLoginForm.value }
             .padding(start = 5.dp),
-        color = MaterialTheme.colors.secondaryVariant)
+        color = colors.secondaryVariant)
 }
 
 @Composable
