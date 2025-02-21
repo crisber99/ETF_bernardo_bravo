@@ -25,7 +25,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -40,7 +39,6 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.etf_bernardo_bravo.ui.theme.ETF_bernardo_bravoTheme
@@ -59,7 +57,9 @@ class GpsActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            WeatherScreen(CityWeatherInfo())
+            ETF_bernardo_bravoTheme {
+                WeatherScreen()
+            }
         }
         window.setFlags(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
@@ -124,7 +124,7 @@ class GpsActivity : ComponentActivity() {
 
 
 @Composable
-fun WeatherScreen(dataclima: CityWeatherInfo) {
+fun WeatherScreen() {
     Box(
         modifier = Modifier
             .fillMaxSize()
