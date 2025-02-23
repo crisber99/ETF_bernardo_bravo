@@ -1,13 +1,17 @@
 package com.EFT.etf_bernardo_bravo
 
 import android.annotation.SuppressLint
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -16,6 +20,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
@@ -28,6 +33,11 @@ import androidx.navigation.compose.rememberNavController
 import com.EFT.etf_bernardo_bravo.modelo.Usuario
 import com.EFT.etf_bernardo_bravo.modelo.Usuario.Companion.agregarUsuario
 import com.EFT.etf_bernardo_bravo.ui.theme.ETF_bernardo_bravoTheme
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.getValue
 
 class InicioActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -45,6 +55,25 @@ class InicioActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    fun obtDatosFirebaseUsuario(){
+        val database = FirebaseDatabase.getInstance().getReference("Usuario")
+        val myRef =  database.child("Usuario")
+
+        myRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                val value = dataSnapshot.getValue<String>()
+                Log.d(TAG, "Value is: $value")
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException())
+            }
+        })
     }
 }
 

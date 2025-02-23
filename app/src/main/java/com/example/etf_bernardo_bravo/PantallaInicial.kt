@@ -1,6 +1,7 @@
 package com.EFT.etf_bernardo_bravo
 
 import android.Manifest
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.speech.RecognitionListener
@@ -34,11 +35,19 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.EFT.etf_bernardo_bravo.modelo.Usuario
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.getValue
 
+val database = FirebaseDatabase.getInstance().getReference("Usuario")
 @Preview(showBackground = true, name = "Prueba Inicial")
 @Composable
 fun PantallaInicial() {
     val context = LocalContext.current
+
     Surface(
         modifier = Modifier
             .fillMaxSize()
@@ -85,7 +94,44 @@ fun PantallaInicial() {
             }
         }
     }
+
+    Spacer(modifier = Modifier.height(15.dp))
+    Column (
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Row {
+
+            Text(
+                modifier = Modifier
+                    .padding(start = 16.dp, end = 16.dp, top = 100.dp)
+                    .fillMaxWidth(),
+                text = "Bienvenido ${obtDatosFirebaseUsuario().toString()}"
+            )
+        }
+    }
+
+
 }
+
+fun obtDatosFirebaseUsuario(){
+    val myRef =  database.child("Usuario")
+
+    myRef.addValueEventListener(object : ValueEventListener {
+        override fun onDataChange(dataSnapshot: DataSnapshot) {
+            // This method is called once with the initial value and again
+            // whenever data at this location is updated.
+            val value = dataSnapshot.getValue<String>()
+            Log.d(TAG, "Value is: $value")
+        }
+
+        override fun onCancelled(error: DatabaseError) {
+            // Failed to read value
+            Log.w(TAG, "Failed to read value.", error.toException())
+        }
+    })
+}
+
 
 @Composable
 fun SpeechRecognizerApp(){

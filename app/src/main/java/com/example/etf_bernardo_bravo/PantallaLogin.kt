@@ -55,6 +55,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.EFT.etf_bernardo_bravo.R
 import com.EFT.etf_bernardo_bravo.modelo.Usuario
+import com.google.firebase.Firebase
+import com.google.firebase.database.database
 
 
 @Preview(showBackground = true, name = "Prueba Login")
@@ -90,6 +92,11 @@ fun PantallaLogin() {
                     Log.d("Proy", "Cuenta creada con: $email y $pass")
                     val usuario = Usuario(email, pass)
                     Usuario.agregarUsuario(usuario)
+
+                    val database = Firebase.database
+                    val myRef = database.getReference("Usuario")
+
+                    myRef.setValue(usuario)
 
                     val intent = Intent(context, InicioActivity::class.java)
                     context.startActivity(intent)
