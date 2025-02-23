@@ -1,4 +1,4 @@
-package com.example.etf_bernardo_bravo.modelo
+package com.EFT.etf_bernardo_bravo.modelo
 
 data class Ingredientes(val nomIngrediente: String) {
     companion object{

@@ -1,4 +1,4 @@
-package com.example.etf_bernardo_bravo
+package com.EFT.etf_bernardo_bravo
 
 
 import android.os.Bundle
@@ -25,7 +25,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.etf_bernardo_bravo.modelo.Usuario
+import com.EFT.etf_bernardo_bravo.modelo.Usuario
 
 
 @Preview(showBackground = true, name = "Prueba Usuario")
@@ -39,7 +39,7 @@ fun PantallaUsuarios() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(30.dp),
+                .padding(top = 30.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(

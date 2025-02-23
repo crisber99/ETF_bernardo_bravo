@@ -1,4 +1,4 @@
-package com.example.etf_bernardo_bravo
+package com.EFT.etf_bernardo_bravo
 
 import android.os.Bundle
 import android.util.Log
@@ -39,9 +39,10 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.etf_bernardo_bravo.ui.theme.ETF_bernardo_bravoTheme
+import com.EFT.etf_bernardo_bravo.ui.theme.ETF_bernardo_bravoTheme
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -122,7 +123,7 @@ class GpsActivity : ComponentActivity() {
 
 }
 
-
+@Preview(showBackground = true, name = "Prueba gps")
 @Composable
 fun WeatherScreen() {
     Box(

@@ -1,4 +1,4 @@
-package com.example.etf_bernardo_bravo.modelo
+package com.EFT.etf_bernardo_bravo.modelo
 
 
 data class Recetas(val id: Int, val nomReceta: String, val ingredientes: Ingredientes) {

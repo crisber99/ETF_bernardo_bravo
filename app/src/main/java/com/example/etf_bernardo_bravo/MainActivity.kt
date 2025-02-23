@@ -1,10 +1,10 @@
-package com.example.etf_bernardo_bravo
+package com.EFT.etf_bernardo_bravo
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.etf_bernardo_bravo.ui.theme.ETF_bernardo_bravoTheme
+import com.EFT.etf_bernardo_bravo.ui.theme.ETF_bernardo_bravoTheme
 
 class MainActivity : ComponentActivity() {
     //@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")

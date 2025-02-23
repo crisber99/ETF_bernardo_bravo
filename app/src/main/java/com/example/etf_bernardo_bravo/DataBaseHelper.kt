@@ -1,4 +1,4 @@
-package com.example.etf_bernardo_bravo
+package com.EFT.etf_bernardo_bravo
 
 import android.content.ContentValues
 import android.content.Context

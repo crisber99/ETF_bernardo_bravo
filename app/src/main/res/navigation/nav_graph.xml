@@ -6,6 +6,6 @@
 
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.example.etf_bernardo_bravo.MainActivity"
+        android:name="com.EFT.etf_bernardo_bravo.MainActivity"
         android:label="MainActivity" />
 </navigation>

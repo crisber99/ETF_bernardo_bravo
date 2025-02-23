@@ -1,4 +1,4 @@
-package com.example.etf_bernardo_bravo
+package com.EFT.etf_bernardo_bravo
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -25,9 +25,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.etf_bernardo_bravo.modelo.Usuario
-import com.example.etf_bernardo_bravo.modelo.Usuario.Companion.agregarUsuario
-import com.example.etf_bernardo_bravo.ui.theme.ETF_bernardo_bravoTheme
+import com.EFT.etf_bernardo_bravo.modelo.Usuario
+import com.EFT.etf_bernardo_bravo.modelo.Usuario.Companion.agregarUsuario
+import com.EFT.etf_bernardo_bravo.ui.theme.ETF_bernardo_bravoTheme
 
 class InicioActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -108,12 +108,14 @@ fun PreView(){
 
 fun cincoUsuarios() {
     var usuario = Usuario("mail@mail.com", "prueba")
+    agregarUsuario(usuario)
     for (i in 1..5) {
         usuario = Usuario("mail$i@mail.com", "prueba $i")
         Log.d("usuario", "N°$i")
+        agregarUsuario(usuario)
     }
 
-    agregarUsuario(usuario)
+
 
 }
 

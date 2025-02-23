@@ -1,41 +1,21 @@
 {
   "project_info": {
-    "project_number": "924815651722",
-    "firebase_url": "https://bernardobravos8-default-rtdb.firebaseio.com",
-    "project_id": "bernardobravos8",
-    "storage_bucket": "bernardobravos8.firebasestorage.app"
+    "project_number": "718943286442",
+    "project_id": "eftbernardobravo",
+    "storage_bucket": "eftbernardobravo.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:924815651722:android:b6cea520e6570e4f6e0e73",
+        "mobilesdk_app_id": "1:718943286442:android:c04b5a1b07df2042090cd3",
         "android_client_info": {
-          "package_name": "com.example.etf_bernardo_bravo"
+          "package_name": "com.EFT.etf_bernardo_bravo"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDTLY1YdgM7vWwcT_JZn8jVb7TPfOcIWDA"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:924815651722:android:4e31ad07a856bad06e0e73",
-        "android_client_info": {
-          "package_name": "semana8.bernardoBravo"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDTLY1YdgM7vWwcT_JZn8jVb7TPfOcIWDA"
+          "current_key": "AIzaSyBtz5A6VMcVTnDD9NSK5q1gcZmbON5IPQY"
         }
       ],
       "services": {

@@ -1,4 +1,4 @@
-package com.example.etf_bernardo_bravo
+package com.EFT.etf_bernardo_bravo
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement

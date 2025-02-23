@@ -1,4 +1,4 @@
-package com.example.etf_bernardo_bravo
+package com.EFT.etf_bernardo_bravo
 
 import android.content.Intent
 import android.os.Bundle
@@ -34,8 +34,8 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.etf_bernardo_bravo.modelo.Usuario
-import com.example.etf_bernardo_bravo.ui.theme.ETF_bernardo_bravoTheme
+import com.EFT.etf_bernardo_bravo.modelo.Usuario
+import com.EFT.etf_bernardo_bravo.ui.theme.ETF_bernardo_bravoTheme
 
 class RecuPassActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

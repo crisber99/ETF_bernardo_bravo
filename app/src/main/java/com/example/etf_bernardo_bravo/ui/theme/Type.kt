@@ -1,4 +1,4 @@
-package com.example.etf_bernardo_bravo.ui.theme
+package com.EFT.etf_bernardo_bravo.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

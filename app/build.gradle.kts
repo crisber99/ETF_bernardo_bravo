@@ -9,11 +9,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.etf_bernardo_bravo"
+    namespace = "com.EFT.etf_bernardo_bravo"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.etf_bernardo_bravo"
+        applicationId = "com.EFT.etf_bernardo_bravo"
         minSdk = 30
         targetSdk = 35
         versionCode = 1
@@ -48,6 +48,9 @@ dependencies {
 
     implementation(platform("com.google.firebase:firebase-bom:33.9.0"))
     implementation("com.google.firebase:firebase-analytics")
+    implementation("androidx.core:core-ktx:1.15.0")
+    implementation("androidx.collection:collection-ktx:1.4.5")
+    implementation("androidx.fragment:fragment-ktx:1.8.3")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
