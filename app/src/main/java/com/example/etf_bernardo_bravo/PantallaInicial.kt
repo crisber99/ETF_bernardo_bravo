@@ -42,7 +42,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.getValue
 
-val database = FirebaseDatabase.getInstance().getReference("Usuario")
+val database = FirebaseDatabase.getInstance()
 @Preview(showBackground = true, name = "Prueba Inicial")
 @Composable
 fun PantallaInicial() {
@@ -106,28 +106,37 @@ fun PantallaInicial() {
                 modifier = Modifier
                     .padding(start = 16.dp, end = 16.dp, top = 100.dp)
                     .fillMaxWidth(),
-                text = "Bienvenido ${obtDatosFirebaseUsuario().toString()}"
+                text = "Bienvenido "
             )
+            obtDatosFirebaseUsuario()
         }
     }
 
 
 }
 
+@Composable
 fun obtDatosFirebaseUsuario(){
-    val myRef =  database.child("Usuario")
-
-    myRef.addValueEventListener(object : ValueEventListener {
+    val myRef =  database.getReference("Usuario")
+    val context = LocalContext.current
+    val addValueEventListener = myRef.addValueEventListener(object : ValueEventListener {
         override fun onDataChange(dataSnapshot: DataSnapshot) {
             // This method is called once with the initial value and again
             // whenever data at this location is updated.
-            val value = dataSnapshot.getValue<String>()
-            Log.d(TAG, "Value is: $value")
+            val value = dataSnapshot.getValue(Usuario::class.java)
+//            Log.d("proyFirebase", "data: $dataSnapshot")
+
+            value?.let{ usuario ->
+                Log.d("proyFirebase", "Mail is: ${usuario.email}")
+                Log.d("proyFirebase", "Pass is: ${usuario.pass}")
+                Toast.makeText(context, "Mail: ${usuario.email}, Pass: ${usuario.pass}", Toast.LENGTH_SHORT).show()
+                return@let
+            }
         }
 
         override fun onCancelled(error: DatabaseError) {
             // Failed to read value
-            Log.w(TAG, "Failed to read value.", error.toException())
+            Log.w("proyFirebase", "Failed to read value.", error.toException())
         }
     })
 }

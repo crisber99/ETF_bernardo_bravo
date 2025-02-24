@@ -2,7 +2,7 @@ package com.EFT.etf_bernardo_bravo.modelo
 
 import android.util.Log
 
-data class Usuario(val email: String, val pass: String) {
+data class Usuario(val email: String? = "", val pass: String? = "") {
     companion object{
         private val listaUsuario = mutableListOf<Usuario>()
 

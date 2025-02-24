@@ -92,8 +92,8 @@ fun Lista(lstUser: List<Usuario>) {
                     .border(border = BorderStroke(1.dp, Color.Black)),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Text(text = lst.email)
-                Text(text = lst.pass)
+                lst.email?.let { Text(text = it) }
+                lst.pass?.let { Text(text = it) }
             }
             Log.d("Proy", "Se lista $lst")
         }
